@@ -1,8 +1,8 @@
 {
-  "name": "ng2-rest-website",
+  "name": "ng2-glassshop",
   "version": "0.0.1",
-  "description": "Simple REST app in Angular 2",
-  "repository": "https://github.com/onehungrymind/fem-ng2-rest-app",
+  "description": "Glass Shop",
+  "repository": "https://github.com/glassshop/",
   "scripts": {
     "client": "npm run client:dev:hmr",
     "client:dev": "webpack-dev-server --inline --colors --watch --display-error-details --display-cached  --port 3001 --content-base client/public",
