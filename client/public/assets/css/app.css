@@ -47,3 +47,22 @@ body {
 .mdl-button {
   margin-left: 20px;
 }
+
+.mdl-textfield .mdl-textfield__input {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#calcLabel {
+  padding-top: 10px;
+  font-size: 28px;
+}
+
+form {
+  padding: 10px;
+  margin: 15px;
+}
+
+.mdl-data-table__cell--non-numeric {
+  font-size: 25px;
+}

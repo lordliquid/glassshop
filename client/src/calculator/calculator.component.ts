@@ -5,39 +5,56 @@ import {Component} from '@angular/core';
     template: require('./calculator.component.html'),
 })
 export class Calculator {
-
-    width: number;
-    height: number;
-    result: number;
-    sqrFt: number;
-    price: number;
-    tempered: boolean;
     
-    constructor(){
-        this.width = 0;
-        this.height = 0;
-        this.result = 0;
-        this.price = 0;
+    unit: any = {
+        width: 0,
+        height: 0,
+        result: 0,
+        sqrFt: 0,
+        price: 0,
+        tempered: false,
+        bars: false
+    }
+
+    constructor() {
+        
     }
 
     calculate() {
-        let sqrInch = this.width * this.height;
-        this.result = 0;
-        
-        this.sqrFt = this.round(sqrInch / 144); 
+        let sqrInch = this.unit.width * this.unit.height;
+        this.unit.result = 0;
 
-        this.addToTotal(this.sqrFt * this.price);
+        this.unit.sqrFt = this.round(sqrInch / 144);
 
-        if (isNaN(this.result)) {
-            this.result = 0;
-        }        
+        this.addToTotal(this.unit.sqrFt * this.unit.price);
+
+        if (isNaN(this.unit.result)) {
+            this.unit.result = 0;
+        }
     }
 
     addToTotal(amount) {
-        this.result += this.round(amount); 
+        this.unit.result += this.round(amount);
     }
 
     round(num): number {
         return parseFloat((num).toFixed(2));
+    }
+
+    toggleBars() {
+        if (!this.unit.bars) {
+            this.addBars();
+        } else {
+            this.removeBars();
+        }
+        this.calculate();
+    }
+
+    addBars() {
+        this.unit.price = this.round(parseFloat(this.unit.price) + 1.90);
+    }
+
+    removeBars() {
+        this.unit.price = this.round(parseFloat(this.unit.price) - 1.90);
     }
 }
