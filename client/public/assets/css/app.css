@@ -44,3 +44,6 @@ body {
 *:focus {
   outline: none;
 }
+.mdl-button {
+  margin-left: 20px;
+}

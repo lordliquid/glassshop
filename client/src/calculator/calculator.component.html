@@ -1,0 +1,32 @@
+<h1>Calculator</h1>
+<!-- Numeric Textfield -->
+<form action="#">
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="width" [(ngModel)]="width" (keyup)='calculate()'>
+        <label class="mdl-textfield__label" for="width">Width</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="height" [(ngModel)]="height" (keyup)='calculate()'>
+        <label class="mdl-textfield__label" for="height">Height</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="price" [(ngModel)]="price" (keyup)='calculate()'>
+        <label class="mdl-textfield__label" for="price">Price</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+    </div>
+
+    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="tempered">
+    <input type="checkbox" id="tempered" class="mdl-switch__input" [(ngModel)]="tempered">
+    <span class="mdl-switch__label">Tempered</span>
+    
+</label>
+</form>
+<hr>
+<div *ngIf="sqrFt">SqrFt: {{sqrFt}}</div>
+<div *ngIf="result">Subtotal: ${{result}}</div>
+<div *ngIf="tempered">Tempered</div>

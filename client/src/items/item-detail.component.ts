@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Item} from './items.service';
+import {Colorer} from '../color';
 
 @Component({
   selector: 'item-detail',
@@ -11,6 +12,7 @@ import {Item} from './items.service';
     </div>
     <div class="mdl-card__supporting-text">
       <form novalidate>
+
           <div class="mdl-textfield mdl-js-textfield">
             <label>Item Name</label>
             <input [(ngModel)]="selectedItem.name"
@@ -19,12 +21,15 @@ import {Item} from './items.service';
           </div>
 
           <div class="mdl-textfield mdl-js-textfield">
-            <label>Item Description</label>
+            <label [colorer]='"blue"'>Item Description</label>
             <input [(ngModel)]="selectedItem.description"
               placeholder="Enter a description"
               class="mdl-textfield__input" type="text">
           </div>
+          
       </form>
+      <hr>
+      <pre>{{selectedItem | json}}</pre>
     </div>
     <div class="mdl-card__actions">
         <button type="submit" (click)="cancelled.emit(selectedItem)"
@@ -33,7 +38,8 @@ import {Item} from './items.service';
           class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
     </div>
   </div>
-  `
+  `,
+  directives: [Colorer]
 })
 export class ItemDetail {
   originalName: string;
@@ -41,7 +47,7 @@ export class ItemDetail {
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
 
-  @Input() set item(value: Item){
+  @Input() set item(value: Item) {
     if (value) this.originalName = value.name;
     this.selectedItem = Object.assign({}, value);
   }
