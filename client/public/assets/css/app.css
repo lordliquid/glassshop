@@ -66,3 +66,12 @@ form {
 .mdl-data-table__cell--non-numeric {
   font-size: 25px;
 }
+
+.demo-list-item {
+  width: 100px;
+  list-style: none;
+}
+
+.padding {
+  padding-left: 20px;
+}

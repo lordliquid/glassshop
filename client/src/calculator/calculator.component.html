@@ -2,42 +2,55 @@
 <!-- Numeric Textfield -->
 <form action="#">
 
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-  {{unit.type}}
-</button>
-    <ul class="mdl-list">
-      <li class="mdl-list__item">
-        <span class="mdl-list__item-primary-content">
-          
-        </span>
-      </li>
-    </ul>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="toggleList()">
+    {{unit.type}}
+  </button>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="width" [(ngModel)]="unit.width" (keyup)='calculate()'>
-        <label class="mdl-textfield__label" for="width" id="calcLabel">Width</label>
-        <span class="mdl-textfield__error">Input is not a number!</span>
-    </div>
+  <ul class="demo-list-item mdl-list" *ngIf="showList">
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Bryan Cranston
+      </span>
+    </li>
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Aaron Paul
+      </span>
+    </li>
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Bob Odenkirk
+      </span>
+    </li>
+  </ul>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="height" [(ngModel)]="unit.height" (keyup)='calculate()'>
-        <label class="mdl-textfield__label" for="height" id="calcLabel">Height</label>
-        <span class="mdl-textfield__error">Input is not a number!</span>
-    </div>
+  <hr>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="price" [(ngModel)]="unit.price" (keyup)='calculate()'>
-        <label class="mdl-textfield__label" for="price" id="calcLabel">Price</label>
-        <span class="mdl-textfield__error">Input is not a number!</span>
-    </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="width" [(ngModel)]="unit.width" (keyup)='calculate()'>
+    <label class="mdl-textfield__label" for="width" id="calcLabel">Width</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
 
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="tempered">
-        <input type="checkbox" id="tempered" class="mdl-switch__input" [(ngModel)]="unit.tempered">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="height" [(ngModel)]="unit.height" (keyup)='calculate()'>
+    <label class="mdl-textfield__label" for="height" id="calcLabel">Height</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="price" [(ngModel)]="unit.price" (keyup)='calculate()'>
+    <label class="mdl-textfield__label" for="price" id="calcLabel">Price</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div>
+
+  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="tempered">
+        <input type="checkbox" id="tempered" class="mdl-switch__input" [(ngModel)]="unit.tempered" [disabled]="!unit.canTemper">
         <span class="mdl-switch__label">Tempered</span>    
     </label>
 
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="bars">
-        <input type="checkbox" id="bars" class="mdl-switch__input" [(ngModel)]="unit.bars" (click)='toggleBars()'>
+  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="bars">
+        <input type="checkbox" id="bars" class="mdl-switch__input" [(ngModel)]="unit.bars" (click)='toggleBars()' [disabled]="!unit.canBar">
         <span class="mdl-switch__label">Bars</span>    
     </label>
 

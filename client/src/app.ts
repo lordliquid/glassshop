@@ -2,7 +2,7 @@ import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {Routes, ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {Items} from './items/items.component';
 import {Customer} from './customers/customer.model';
-import {CustomerComponent} from './customers/customer.component';
+import {CustomersComponent} from './customers/customers.component';
 import {Colorer} from './color';
 import {Widgets} from './widgets/widget.component';
 import {Calculator} from './calculator/calculator.component';
@@ -11,28 +11,28 @@ import {Calculator} from './calculator/calculator.component';
   selector: 'my-app',
   template: require('./app.html'),
   providers: [Customer],
-  directives: [ROUTER_DIRECTIVES, CustomerComponent, Colorer, Widgets, Calculator]
+  directives: [ROUTER_DIRECTIVES, CustomersComponent, Colorer, Widgets, Calculator]
 })
 @Routes([
-  {path: '/items', component: Items},
-  {path: '/inventory', component: CustomerComponent},
-  {path: '/widgets', component: Widgets},
-  {path: '/calculator', component: Calculator}
+  { path: '/items', component: Items },
+  { path: '/widgets', component: Widgets },
+  { path: '/calculator', component: Calculator },
+  { path: '/customers', component: CustomersComponent }
 ])
 export class App {
   constructor(
     private router: Router
-  ){}
-  
+  ) { }
+
 
   links = {
     items: ['/items'],
-    inventory: ['/inventory'],
     widgets: ['/widgets'],
-    calculator: ['/calculator']
+    calculator: ['/calculator'],
+    customer: ['/customer']
   }
 
-  goTo(location: any){
+  goTo(location: any) {
     this.router.navigate(location);
   }
 }

@@ -6,14 +6,19 @@ import {Component} from '@angular/core';
 })
 export class Calculator {
     
+    showList: boolean = false;
+
     unit: any = {
+        type: 'Mirror',
         width: 0,
         height: 0,
         result: 0,
         sqrFt: 0,
         price: 0,
         tempered: false,
-        bars: false
+        bars: false,
+        canTemper: false,
+        canBar: false
     }
 
     constructor() {
@@ -56,5 +61,9 @@ export class Calculator {
 
     removeBars() {
         this.unit.price = this.round(parseFloat(this.unit.price) - 1.90);
+    }
+
+    toggleList() {
+        this.showList = !this.showList;
     }
 }
