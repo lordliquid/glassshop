@@ -1,12 +1,5 @@
 <h1>Customers</h1>
 
-<form action="#">
-  <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" id="search" [(ngModel)]="search">
-    <label class="mdl-textfield__label" for="search">Search</label>
-  </div>
-</form>
-
 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
   <thead>
     <tr>
@@ -16,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let customer of customers">
+    <tr *ngFor="let customer of customers | search: 'r'">
       <td class="mdl-data-table__cell--non-numeric">{{customer.name}}</td>
       <td>{{customer.phone}}</td>
       <td>{{customer.address}}</td>

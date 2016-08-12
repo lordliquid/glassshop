@@ -59,17 +59,26 @@
 
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
   <tbody>
+
     <tr *ngIf="unit.sqrFt">
       <td class="mdl-data-table__cell--non-numeric" *ngIf="unit.sqrFt">SqrFt: {{unit.sqrFt}}</td>
     </tr>
+        
+    <tr *ngIf="unit.linearInch">
+      <td class="mdl-data-table__cell--non-numeric" *ngIf="unit.linearInch">Linear Inch: {{unit.linearInch}}</td>
+    </tr>
+
     <tr *ngIf="unit.result">
       <td class="mdl-data-table__cell--non-numeric" *ngIf="unit.result">Subtotal: ${{unit.result}}</td>
     </tr>
+
     <tr *ngIf="unit.tempered">
       <td class="mdl-data-table__cell--non-numeric" *ngIf="unit.tempered">Tempered</td>
     </tr>
+
     <tr *ngIf="unit.bars">
       <td class="mdl-data-table__cell--non-numeric" *ngIf="unit.bars">Bars</td>
     </tr>
+
   </tbody>
 </table>

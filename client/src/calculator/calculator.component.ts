@@ -18,7 +18,8 @@ export class Calculator {
         tempered: false,
         bars: false,
         canTemper: false,
-        canBar: false
+        canBar: false,
+        linearInch: 0
     }
 
     constructor() {
@@ -31,6 +32,7 @@ export class Calculator {
 
         this.unit.sqrFt = this.round(sqrInch / 144);
 
+        this.unit.linearInch = this.rectangleLinearInch(this.unit.width, this.unit.height);
         this.addToTotal(this.unit.sqrFt * this.unit.price);
 
         if (isNaN(this.unit.result)) {
@@ -65,5 +67,9 @@ export class Calculator {
 
     toggleList() {
         this.showList = !this.showList;
+    }
+
+    rectangleLinearInch(width, height) {
+        return (width * 2) + (height * 2);
     }
 }
