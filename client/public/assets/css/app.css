@@ -1,4 +1,4 @@
-body {
+/*body {
   background-color: whitesmoke;
 }
 .content .mdl-layout__header {
@@ -12,9 +12,9 @@ body {
   margin-top: 8px;
 }
 .page-content {
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 10px;
   padding: 0;
 }
 .item-card.mdl-card {
@@ -30,7 +30,7 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, .12);
   display: block;
   font-size: 16px;
-  margin: 0;
+  margin: 10px;
   padding: 4px 0;
   width: 100%;
   background: 0 0;
@@ -44,23 +44,18 @@ body {
 *:focus {
   outline: none;
 }
-.mdl-button {
+*/
+#menuButton {
   margin-left: 20px;
 }
-
+/*
 .mdl-textfield .mdl-textfield__input {
   font-size: 20px;
-  margin-top: 10px;
 }
 
 #calcLabel {
   padding-top: 10px;
   font-size: 28px;
-}
-
-form {
-  padding: 10px;
-  margin: 15px;
 }
 
 .mdl-data-table__cell--non-numeric {
@@ -70,8 +65,15 @@ form {
 .demo-list-item {
   width: 100px;
   list-style: none;
+  margin: 10px;
+  display: inherit;
 }
 
 .padding {
   padding-left: 20px;
+}*/
+
+#customerList{
+  min-width: 100%;
 }
+

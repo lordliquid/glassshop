@@ -1,27 +1,26 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Customer} from './customer.model';
+import {Component, Input} from '@angular/core';
 import {SearchPipe} from '../pipes/search';
+import {CustomerSearch} from './customer-search';
+import {CustomerList} from './customer-list';
+import {CustomerAdd} from './customer-add';
 
 @Component({
     selector: 'customer-main',
-    template: require('./customers.component.html'),
-    providers: [Customer],
-    pipes: [SearchPipe],
-    host: {
-        '(change)': 'onChange($event)' 
-    }
+    directives: [CustomerSearch, CustomerList, CustomerAdd],
+    providers: [SearchPipe],
+    template : `
+        <h1>Customers</h1>
+        <div class="content-grid mdl-grid">
+            <div class="mdl-cell">
+                <customer-search (update)="term = $event"></customer-search>        
+                <customer-list [(term)]="term"></customer-list>
+            </div>
+            <div class="mdl-cell">
+                <customer-add (update)="term = $event"></customer-add>
+            </div>
+        </div>
+    ` 
 })
 export class CustomersComponent {    
-    public customers;
-
-    constructor() {
-        this.customers = [
-            { id: 1, name: 'Robert Cutright', phone: '9039780505', address: '23000 CR 187' },
-            { id: 2, name: 'David Cutright', phone: '9039540114', address: '15412 Cedar Bay Dr.' }
-        ]
-    }
-
-    onChange(event: Event) {
-        console.log('event fired');
-    }   
+    @Input() term: string;
 }

@@ -2,10 +2,11 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title" [colorer]='"orange"'>Cutright Glass - Shop V2.0</span>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)='goTo(links.calculator)'>Calculator</button>
+      <button id="menuButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)='goTo(links.calculator)'>Calculator</button>
+      <button id="menuButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)='goTo(links.customers)'>Customers</button>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" [routerLink]="links.items">Items</a>
+        <!--<a class="mdl-navigation__link" [routerLink]="links.items">Items</a>-->
       </nav>
     </div>
   </header>

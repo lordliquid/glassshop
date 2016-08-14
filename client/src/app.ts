@@ -23,13 +23,12 @@ export class App {
   constructor(
     private router: Router
   ) { }
-
-
+  
   links = {
     items: ['/items'],
     widgets: ['/widgets'],
     calculator: ['/calculator'],
-    customer: ['/customer']
+    customers: ['/customers']
   }
 
   goTo(location: any) {

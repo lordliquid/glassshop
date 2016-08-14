@@ -1,16 +1,21 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {CustomerList} from './customer-list';
 
 @Component({
     selector: 'customer-search',
+    directives: [CustomerList], 
     template: `<form action="#">
         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" id="search" (input)="term">
+            <input #box class="mdl-textfield__input" type="text" id="search" (input)="update.emit(box.value)">
             <label class="mdl-textfield__label" for="search">Search</label>
         </div>
     </form>
     `
 })
 export class CustomerSearch {
-    @Input() term;
     @Output() update = new EventEmitter();
+
+    ngOnInit() {
+        this.update.emit('');
+    }
 }
